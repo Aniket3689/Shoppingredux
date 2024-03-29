@@ -4,8 +4,8 @@ const Navbar = () => {
   return <div>
        <div className="flex flex-row justify-between">
           <NavLink to="/">
-            <div>
-              <img src="https://tse2.mm.bing.net/th?id=OIP.5xNlP2wgT1S8yOulmw0HZgAAAA&pid=Api&P=0&h=180" alt="" />
+            <div className="ml-5">
+              <img src="../logo.png" alt=""className="h-14" />
             </div>
           </NavLink>
           <NavLink to="/">
@@ -14,8 +14,8 @@ const Navbar = () => {
             </div>
           </NavLink>
           <NavLink to="/cart">
-            <div>
-                < FaCartArrowDown/>
+            <div >
+                < FaCartArrowDown className="h-14"/>
             </div>
           </NavLink>
        </div>
