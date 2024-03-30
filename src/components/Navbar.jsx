@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import { FaCartArrowDown } from "react-icons/fa";
 const Navbar = () => {
   return <div>
-       <div className="flex flex-row justify-between">
+       <div className="flex  justify-between items-center h-20 max">
           <NavLink to="/">
             <div className="ml-5">
               <img src="../logo.png" alt=""className="h-14" />
