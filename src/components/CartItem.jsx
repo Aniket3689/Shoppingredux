@@ -9,27 +9,29 @@ const CartItem = ({item,itemIndex}) => {
          dispatch((remove(item.id)));
          toast.success("Item remove")
   }
-  return <div>
-     <div>
-      <div>
-        <img src={item.image}/>
+  return <div >
+     <div className="flex flex-col border-b-4 border-amber-950">
+      <div className="h-[160px] w-[200px]">
+        <img src={item.image} className="h-full w-full"/>
       </div>
-      <div>
+      <div className="text-gray-400">
        <h1> {item.title}</h1>
       </div>
-      <div>
-        <h1>{item.description}</h1>
+      <div className="text-slate-700 font-semibold ">
+        <h1>{item.description.split(" ").slice(0,11).join(" ")+" "}</h1>
       </div>
-       <div>
-        {item.price}
+      <div className="flex justify-between ">
+       <div className="text-green-700 font-bold">
+        ${item.price}
        </div>
        <div>
         <button 
-        
+           className="font-bold "
         onClick={removeFronCart}>
             <MdDelete />
         </button>
        </div>
+      </div>
      </div>
 
   </div>;
