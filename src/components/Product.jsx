@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-hot-toast";
 import {add,remove} from "../redux/Slices/CartSlice"
 const Product = ({post}) => {
-  const cart=useSelector((state)=>state)
+  const {cart}=useSelector((state)=>state)
     console.log(cart);
   const dispatch =useDispatch();
 
@@ -15,33 +15,47 @@ const Product = ({post}) => {
     toast.success("remove item from cart")
   }
 
-  return <div>
+  return <div className="flex flex-col items-center
+     hover:scale-110 translate duration-300  shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)]
+     rounded-xl outline mt-10 ml-5 ease-in
+  ">
     <div>
-      <p>{post.title}</p>
+      <p className="text-gray-700 font-semibold text-lg text-left truncate w-40 mt-1 ">{post.title}</p>
     </div>
     <div>
-      <p>{post.description}</p>
+      <p className="w-40 text-gray-400 font-normal text-[10px] text-left">{post.description.split(" ").slice(0,10).join(" ")+"..."}</p>
     </div>
-    <div>
-        <img src={post.image} alt="" />
+    <div className="h-[180px]">
+        <img src={post.image} alt="" className="h-full w-full" />
     </div>
-    
-     <div>
+    <div className="flex  justify-between gap-12   items-center w-full h-full">
+      <div className="font-semibold text-green-600 ">${post.price}</div>
+     <div  className="p-3" >
      {
-        [cart]?.some((p)=>p.id===post.id)?
+        cart.some((p)=>p.id===post.id)?
        (<button
+            className="text-gray-700 border-2  border-gray-700 rounded-full  font-semibold
+              text-[12px] p-1  px-3 uppercase hover:bg-gray-700 
+              hover:text-white transition duration-300 ease-in  mb-3 
+            "
           onClick={removeFromItem}
        >
         Remove item
-       </button>):(
-        <button onClick={AddToItem}> 
+       </button >):(
+        <button 
+        className="text-gray-700 border-2  border-gray-700 rounded-full  font-semibold
+        text-[12px] p-1  px-3 uppercase hover:bg-gray-700 
+        hover:text-white transition duration-300 ease-in
+      "
+        onClick={AddToItem}> 
           Add item
        </button>)
        
      }
      </div>
-    
+    </div>
   </div>;
+  
 };
 
 export default Product;
